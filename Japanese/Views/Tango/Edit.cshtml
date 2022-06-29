@@ -1,0 +1,82 @@
+﻿@model Japanese.Models.VOCABULARY
+
+@{
+    ViewData["Title"] = "修改";
+}
+
+<h1>修改</h1>
+
+<h4>VOCABULARY</h4>
+<hr />
+@using (Html.BeginForm("Create"))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="id" />
+        <input type="hidden" asp-for="create_date" />
+
+        <div class="col-12">
+            <div class="form-group">
+                <label asp-for="speech" class="control-label"></label>
+                <select class="form-control" asp-items="@ViewBag.SpeechList" asp-for="speech"></select>
+                <span asp-validation-for="speech" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label asp-for="vocabulary" class="control-label"></label>
+                <input asp-for="vocabulary" class="form-control" />
+                <span asp-validation-for="vocabulary" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+
+            <div class="form-group">
+                <label asp-for="kanji" class="control-label"></label>
+                <input asp-for="kanji" class="form-control" />
+                <span asp-validation-for="kanji" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="chinese" class="control-label"></label>
+                <input asp-for="chinese" class="form-control" />
+                <span asp-validation-for="chinese" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label asp-for="remark" class="control-label"></label>
+                <textarea asp-for="remark" class="form-control"></textarea>
+                <span asp-validation-for="remark" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label asp-for="tags" class="control-label"></label>
+                <textarea asp-for="tags" class="form-control"></textarea>
+                <span asp-validation-for="tags" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <input type="submit" value="儲存" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">回到列表</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+}

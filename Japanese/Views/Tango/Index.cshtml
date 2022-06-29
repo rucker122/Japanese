@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Japanese.Models.VOCABULARY>
+
+@{
+    ViewData["Title"] = "單字列表";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+<nav class="navbar navbar-light">
+    <div class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="搜尋單字" aria-label="Search" value="@ViewBag.Keyword">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="search()">搜尋</button>
+    </div>
+    <a asp-action="Create" class="btn btn-outline-primary">新增單字</a>
+</nav>
+
+
+<table class="table table-hover table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.vocabulary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kanji)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.chinese)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.vocabulary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kanji)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.chinese)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-outline-warning">編輯</a>
+                <a asp-action="Details" asp-route-id="@item.id" class="btn btn-outline-info">內容</a>
+                @*<a asp-action="Delete" asp-route-id="@item.id" class="btn btn-outline-danger">刪除</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+<script>
+    var search = function () {
+        let keyword;
+
+        for (let el of document.getElementsByTagName("input")) {
+            if (el.type === 'search') {
+                keyword = el.value;
+                break;
+            }
+        }
+
+        location.href = `@Url.Action("Index")?k=${keyword}`;
+    }
+</script>

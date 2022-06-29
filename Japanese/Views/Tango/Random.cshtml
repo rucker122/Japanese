@@ -1,0 +1,31 @@
+﻿@model Japanese.Models.VOCABULARY
+@{
+    SPEECH s = ViewBag.Speech as SPEECH;
+}
+
+
+<div class="row justify-content-md-center" >
+    <div class="col-12 text-center mt-5 mb-5">
+        <h2>@(Model.kanji == null ? " " : Model.vocabulary)</h2>
+        <h1 class="display-1">@(Model.kanji ?? Model.vocabulary)</h1>
+    </div>
+
+
+    <div class="col-12 col-12 text-center">
+        <button class="btn btn-primary btn-sm w-100" type="button" 
+                data-toggle="collapse" 
+                data-target="#collapseDetail" 
+                aria-expanded="false" 
+                aria-controls="collapseDetail">
+            詳細
+        </button>
+        <div class="collapse" id="collapseDetail">
+            <div class="card card-body">
+                <p class="text-primary h3 font-weight-bold">@(Model.chinese)</p>
+                <p class="text-secondary">@(s.speech)</p>
+                <p class="text-danger">@(Model.remark)</p>
+                <p class="mt-3">@(Model.tags)</p>
+            </div>
+        </div>
+    </div>
+</div>
