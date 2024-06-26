@@ -16,6 +16,7 @@ namespace Japanese.Data
 
         public DbSet<Japanese.Models.VOCABULARY> VOCABULARY { get; set; }
         public DbSet<Japanese.Models.SPEECH> SPEECH { get; set; }
+        public DbSet<Japanese.Models.SYLLABARIES> SYLLABARIES { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
