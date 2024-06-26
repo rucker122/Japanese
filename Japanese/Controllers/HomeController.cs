@@ -1,14 +1,7 @@
-﻿using Japanese.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Threading.Tasks;
 
 using Japanese.Data;
-using Japanese.Models;
 
 namespace Japanese.Controllers
 {
