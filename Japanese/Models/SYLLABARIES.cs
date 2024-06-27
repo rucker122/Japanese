@@ -10,7 +10,10 @@ namespace Japanese.Models
         public int type { get; set; }
 
         [Display(Name = "音行")]
-        public string row { get; set; }
+        public int row { get; set; }
+
+        [Display(Name = "音欄")]
+        public int col { get; set; }
 
         [Display(Name = "發音")]
         public string pronounce { get; set; }
